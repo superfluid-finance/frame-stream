@@ -1,13 +1,13 @@
 export const runtime = 'edge'
 import { URL } from '../constants'
 
-const image = "https://i.imgur.com/3kPV9tt.png"
-const buttonText = 'Check your number'
+const image = "https://i.imgflip.com/8ftuve.jpg"
+const buttonText = 'Check if correct'
 
 export default function Home() {
   return (
     <div>
-      <a href="https://nader.codes" target="_blank" rel="no-opener">
+      <a href="https://superfluid.finance" target="_blank" rel="no-opener">
       <img
         src={image}
         width={400}
@@ -30,7 +30,7 @@ export async function generateMetadata() {
     'fc:frame:button:1': buttonText,
     'fc:frame:button:1:action': 'post',
 
-    'fc:frame:input:text': 'Number between 1 and 1000',
+    'fc:frame:input:text': 'GDA Forwarder Address on Mumbai',
   }
 
   return {

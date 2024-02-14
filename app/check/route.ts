@@ -13,8 +13,8 @@ init(process.env.AIRSTACK_KEY || '')
 
 let image
 const notFollowingImage = "https://i.imgur.com/u2cnAbH.png"
-const wrongImage = "https://imgflip.com/i/8fttpq.jpg"
-const winner = 'https://imgflip.com/i/8ftu0d.jpg'
+const wrongImage = "https://i.imgflip.com/8fttpq.jpg"
+const winner = 'https://i.imgflip.com/8ftu0d.jpg'
 
 image = wrongImage
 
