@@ -40,3 +40,5 @@ yarn.lock
 
 # Ignore .env.production.local files for production environment variables
 .env.production.local
+
+.next

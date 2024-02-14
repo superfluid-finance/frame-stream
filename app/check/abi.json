@@ -1,738 +1,245 @@
 [
   {
-    "constant": true,
-    "inputs": [],
-    "name": "name",
-    "outputs": [
+    "inputs": [
       {
-        "name": "",
-        "type": "string"
+        "internalType": "contract ISuperfluid",
+        "name": "host",
+        "type": "address"
       }
     ],
-    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "inputs": [], "name": "CFA_FWD_INVALID_FLOW_RATE", "type": "error" },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISuperToken",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" },
+      { "internalType": "bytes", "name": "userData", "type": "bytes" }
+    ],
+    "name": "createFlow",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISuperToken",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" },
+      { "internalType": "bytes", "name": "userData", "type": "bytes" }
+    ],
+    "name": "deleteFlow",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISuperToken",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "getAccountFlowInfo",
+    "outputs": [
+      { "internalType": "uint256", "name": "lastUpdated", "type": "uint256" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" },
+      { "internalType": "uint256", "name": "deposit", "type": "uint256" },
+      { "internalType": "uint256", "name": "owedDeposit", "type": "uint256" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
-        "name": "_spender",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "account", "type": "address" }
     ],
-    "name": "approve",
+    "name": "getAccountFlowrate",
     "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
+      { "internalType": "int96", "name": "flowrate", "type": "int96" }
     ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
-        "name": "_account",
-        "type": "address"
-      }
-    ],
-    "name": "unBlacklist",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_from",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "int96", "name": "flowrate", "type": "int96" }
     ],
-    "name": "transferFrom",
+    "name": "getBufferAmountByFlowrate",
     "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
+      { "internalType": "uint256", "name": "bufferAmount", "type": "uint256" }
     ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "minter",
-        "type": "address"
-      }
-    ],
-    "name": "removeMinter",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "decimals",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint8"
-      }
-    ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
-        "name": "_name",
-        "type": "string"
-      },
-      {
-        "name": "_symbol",
-        "type": "string"
-      },
-      {
-        "name": "_currency",
-        "type": "string"
-      },
-      {
-        "name": "_decimals",
-        "type": "uint8"
-      },
-      {
-        "name": "_masterMinter",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "_pauser",
-        "type": "address"
-      },
-      {
-        "name": "_blacklister",
-        "type": "address"
-      },
-      {
-        "name": "_owner",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" }
     ],
-    "name": "initialize",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "masterMinter",
+    "name": "getFlowInfo",
     "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
+      { "internalType": "uint256", "name": "lastUpdated", "type": "uint256" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" },
+      { "internalType": "uint256", "name": "deposit", "type": "uint256" },
+      { "internalType": "uint256", "name": "owedDeposit", "type": "uint256" }
     ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [],
-    "name": "unpause",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
     "inputs": [
       {
-        "name": "_to",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "_amount",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "flowOperator", "type": "address" }
     ],
-    "name": "mint",
+    "name": "getFlowOperatorPermissions",
     "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
+      { "internalType": "uint8", "name": "permissions", "type": "uint8" },
+      { "internalType": "int96", "name": "flowrateAllowance", "type": "int96" }
     ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "burn",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "minter",
-        "type": "address"
-      },
-      {
-        "name": "minterAllowedAmount",
-        "type": "uint256"
-      }
-    ],
-    "name": "configureMinter",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_newPauser",
-        "type": "address"
-      }
-    ],
-    "name": "updatePauser",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "paused",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "account",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
-      }
+      },
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" }
     ],
-    "name": "balanceOf",
+    "name": "getFlowrate",
     "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
+      { "internalType": "int96", "name": "flowrate", "type": "int96" }
     ],
-    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [],
-    "name": "pause",
-    "outputs": [],
-    "payable": false,
+    "inputs": [
+      {
+        "internalType": "contract ISuperToken",
+        "name": "token",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "flowOperator", "type": "address" }
+    ],
+    "name": "grantPermissions",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "minter",
-        "type": "address"
-      }
-    ],
-    "name": "minterAllowance",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "pauser",
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_to",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
+      { "internalType": "address", "name": "flowOperator", "type": "address" }
     ],
-    "name": "transfer",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
+    "name": "revokePermissions",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
-        "name": "_newMasterMinter",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
-      }
+      },
+      { "internalType": "address", "name": "receiver", "type": "address" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" }
     ],
-    "name": "updateMasterMinter",
-    "outputs": [],
-    "payable": false,
+    "name": "setFlowrate",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "account",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
-      }
+      },
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" }
     ],
-    "name": "isMinter",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_newBlacklister",
-        "type": "address"
-      }
-    ],
-    "name": "updateBlacklister",
-    "outputs": [],
-    "payable": false,
+    "name": "setFlowrateFrom",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [],
-    "name": "blacklister",
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [
       {
-        "name": "owner",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
       },
-      {
-        "name": "spender",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "sender", "type": "address" },
+      { "internalType": "address", "name": "receiver", "type": "address" },
+      { "internalType": "int96", "name": "flowrate", "type": "int96" },
+      { "internalType": "bytes", "name": "userData", "type": "bytes" }
     ],
-    "name": "allowance",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "currency",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "payable": false,
+    "name": "updateFlow",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "constant": false,
     "inputs": [
       {
-        "name": "_account",
+        "internalType": "contract ISuperToken",
+        "name": "token",
         "type": "address"
-      }
+      },
+      { "internalType": "address", "name": "flowOperator", "type": "address" },
+      { "internalType": "uint8", "name": "permissions", "type": "uint8" },
+      { "internalType": "int96", "name": "flowrateAllowance", "type": "int96" }
     ],
-    "name": "blacklist",
-    "outputs": [],
-    "payable": false,
+    "name": "updateFlowOperatorPermissions",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "nonpayable",
     "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_account",
-        "type": "address"
-      }
-    ],
-    "name": "isBlacklisted",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "minter",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "Mint",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "burner",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "Burn",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "minter",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "minterAllowedAmount",
-        "type": "uint256"
-      }
-    ],
-    "name": "MinterConfigured",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "oldMinter",
-        "type": "address"
-      }
-    ],
-    "name": "MinterRemoved",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "newMasterMinter",
-        "type": "address"
-      }
-    ],
-    "name": "MasterMinterChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "_account",
-        "type": "address"
-      }
-    ],
-    "name": "Blacklisted",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "_account",
-        "type": "address"
-      }
-    ],
-    "name": "UnBlacklisted",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "newBlacklister",
-        "type": "address"
-      }
-    ],
-    "name": "BlacklisterChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [],
-    "name": "Pause",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [],
-    "name": "Unpause",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "PauserChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "spender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "Approval",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "name": "previousOwner",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "OwnershipTransferred",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "Transfer",
-    "type": "event"
   }
 ]

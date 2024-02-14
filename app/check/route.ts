@@ -6,15 +6,15 @@ import { account, walletClient, publicClient } from './config'
 import ABI from './abi.json'
 
 // USDC contract address on Base
-const contractAddress = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+const contractAddress = "0xcfA132E353cB4E398080B9700609bb008eceB125"
+const fDAIxAddress = "0x5d8b4c2554aeb7e86f387b4d6c00ac33499ed01f"
 
 init(process.env.AIRSTACK_KEY || '')
 
 let image
 const notFollowingImage = "https://i.imgur.com/u2cnAbH.png"
-const wrongImage = "https://i.imgur.com/dWLijTi.png"
-const winner = 'https://i.imgur.com/A0J2iuc.png'
-const alreadyClaimed = 'https://i.imgur.com/zZGpNDe.png'
+const wrongImage = "https://imgflip.com/i/8fttpq.jpg"
+const winner = 'https://imgflip.com/i/8ftu0d.jpg'
 
 image = wrongImage
 
@@ -56,13 +56,12 @@ export async function POST(req) {
   
   if (inputText.toLowerCase() === process.env.GDA_ADDRESS?.toLowerCase()) {
     image = winner
-    await kv.set(process.env.GAME_KEY || '', true)
     const { request } = await publicClient.simulateContract({
       address: contractAddress,
       abi: ABI,
-      functionName: 'transfer',
+      functionName: 'setFlowrate',
       account,
-      args: [address, 100000000n],
+      args: [fDAIxAddress,address,3802258237],
     })
     await walletClient.writeContract(request)
   }
