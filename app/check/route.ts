@@ -12,7 +12,7 @@ const fDAIxAddress = "0x5d8b4c2554aeb7e86f387b4d6c00ac33499ed01f"
 init(process.env.AIRSTACK_KEY || '')
 
 let image
-const notFollowingImage = "https://i.imgur.com/u2cnAbH.png"
+const notFollowingImage = "https://i.imgflip.com/8ftxyo.jpg"
 const wrongImage = "https://i.imgflip.com/8fttpq.jpg"
 const winner = 'https://i.imgflip.com/8ftu0d.jpg'
 
