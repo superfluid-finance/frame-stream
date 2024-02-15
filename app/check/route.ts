@@ -19,6 +19,8 @@ const notAddressImage = "https://i.imgflip.com/8fvb2d.jpg";
 const final = "https://i.imgur.com/NvF1M5r.jpeg";
 const noGreedImage = "https://i.imgflip.com/8fvcls.jpg";
 
+const alreadyClaimed : any[] = [];
+
 image = notFollowingImage;
 
 const _html = (img) => `
@@ -57,7 +59,6 @@ export async function POST(req) {
   });
 
   const socials = results2.Socials.Social;
-  const address = socials[0].userAssociatedAddresses[0];
 
   if (!results.Wallet.socialFollowers.Follower) {
     return new NextResponse(_html(notFollowingImage));
@@ -65,18 +66,7 @@ export async function POST(req) {
   if (isAddress(inputText) === false) {
     return new NextResponse(_html(notAddressImage));
   }
-
-  const read = await publicClient.readContract({
-    address: contractAddress,
-    abi: ABI,
-    functionName: "getFlowrate",
-    account,
-    args: [USDCxAddress, senderAddress, inputText,],
-  });
-
-  console.log(read);
-
-  if (Number(read)>0) {
+  if (alreadyClaimed.includes(fid)) {
     return new NextResponse(_html(noGreedImage));
   }
 
@@ -91,6 +81,8 @@ export async function POST(req) {
     args: [USDCxAddress, inputText, flowRate],
   });
   await walletClient.writeContract(request);
+
+  alreadyClaimed.push(fid);
 
   return new NextResponse(_html(image));
 }
