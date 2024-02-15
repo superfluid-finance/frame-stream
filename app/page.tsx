@@ -3,7 +3,7 @@ import { URL } from '../constants'
 
 
 const image = "https://i.imgflip.com/8fvahi.jpg"
-const buttonText = 'Input your wallet address here to get free money stream'
+const buttonText = 'Click to get stream'
 
 export default function Home() {
   return (
