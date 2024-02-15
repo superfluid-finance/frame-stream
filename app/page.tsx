@@ -25,7 +25,7 @@ export async function generateMetadata() {
     'og:image': image,
     'fc:frame': 'vNext',
     'fc:frame:image': image,
-    'fc:frame:image:aspect_ratio': '1.91:1',
+    'fc:frame:image:aspect_ratio': '1:1',
   
     'fc:frame:post_url': `${URL}/check`,
     'fc:frame:button:1': buttonText,

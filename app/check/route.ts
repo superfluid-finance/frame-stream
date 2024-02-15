@@ -16,7 +16,7 @@ init(process.env.AIRSTACK_KEY || "");
 let image;
 const notFollowingImage = "https://i.imgflip.com/8fvawm.jpg";
 const notAddressImage = "https://i.imgflip.com/8fvb2d.jpg";
-const final = "https://i.imgflip.com/8fvbhs.jpg";
+const final = "https://i.imgur.com/NvF1M5r.jpeg";
 const noGreedImage = "https://i.imgflip.com/8fvcls.jpg";
 
 image = notFollowingImage;
