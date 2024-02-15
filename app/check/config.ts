@@ -1,14 +1,14 @@
 import { createWalletClient, createPublicClient, http } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
-import { polygonMumbai } from 'viem/chains'
+import { base } from 'viem/chains'
 
 export const walletClient = createWalletClient({
-  chain: polygonMumbai,
+  chain: base,
   transport:  http()
 })
 
 export const publicClient = createPublicClient({
-  chain: polygonMumbai,
+  chain: base,
   transport: http()
 })
 

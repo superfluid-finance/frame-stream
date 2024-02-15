@@ -1,8 +1,9 @@
 export const runtime = 'edge'
 import { URL } from '../constants'
 
-const image = "https://i.imgflip.com/8ftuve.jpg"
-const buttonText = 'Check if correct'
+
+const image = "https://i.imgflip.com/8fvahi.jpg"
+const buttonText = 'Input your wallet address here to get free money stream'
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export async function generateMetadata() {
     'fc:frame:button:1': buttonText,
     'fc:frame:button:1:action': 'post',
 
-    'fc:frame:input:text': 'GDA Forwarder Address on Mumbai',
+    'fc:frame:input:text': 'Input your wallet address here',
   }
 
   return {
